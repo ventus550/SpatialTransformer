@@ -4,6 +4,7 @@ import keras
 from keras.layers import *
 
 
+@tf.keras.utils.register_keras_serializable()
 class BilinearInterpolation(Layer):
     def build(self, input_shape):
         assert len(input_shape) == 2, "Expected exactly two inputs"
@@ -127,6 +128,7 @@ class BilinearInterpolation(Layer):
         )
 
 
+@tf.keras.utils.register_keras_serializable()
 class SpatialTransformer(keras.models.Model):
     def __init__(self, localization=[], **kwargs):
         super().__init__(**kwargs)
